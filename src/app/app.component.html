@@ -1,0 +1,263 @@
+<main>
+  <nav class="nav container">
+    <a class="brand" href="#top" aria-label="NexonSolar home"><span class="brand-mark">✦</span>NexonSolar</a>
+    <div class="links" [class.open]="menuOpen()">
+      <a href="#solutions" (click)="closeMenu()">Solutions</a><a href="#about" (click)="closeMenu()">About us</a><a
+        href="#process" (click)="closeMenu()">How it works</a>
+      <button class="nav-cta mobile-cta" (click)="openEstimate()">Get an estimate <span>↗</span></button>
+    </div>
+    <button class="nav-cta desktop-cta" (click)="openEstimate()">Get an estimate <span>↗</span></button>
+    <button class="menu" (click)="menuOpen.set(!menuOpen())" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <section id="top" class="hero container">
+    <div class="hero-copy reveal">
+      <p class="eyebrow"><span></span> THE BRIGHTER WAY HOME</p>
+      <h1>Save up to <em>90%</em><br>on your energy<br>bills.</h1>
+      <p class="lead">Your rooftop. Your power. NexonSolar designs, installs, and maintains a solar system built around
+        your home.</p>
+      <div class="hero-actions"><button class="button primary" (click)="openEstimate()">Get free quote
+          <b>↗</b></button><a href="#process" class="text-link">How it works <b>↓</b></a></div>
+      <p class="hero-trust">★★★★★ <span>4.9/5 from 2,000+ homeowners</span></p>
+    </div>
+    <div class="hero-art" aria-label="Stylised solar home illustration">
+      <div class="sun"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="hill hill-a"></div>
+      <div class="hill hill-b"></div>
+      <div class="house">
+        <div class="roof">
+          <div class="panels"><b></b><b></b><b></b><b></b><b></b><b></b></div>
+        </div>
+        <div class="chimney"></div>
+        <div class="home-body">
+          <div class="window"></div>
+          <div class="door"></div>
+        </div>
+      </div>
+      <div class="sprout s1">✦</div>
+      <div class="sprout s2">✦</div>
+      <div class="energy-card"><span class="bolt">ϟ</span>
+        <div><small>YOUR POTENTIAL</small><strong>₹ 2,840 <em>/mo</em></strong>
+          <p>estimated savings</p>
+        </div><span class="up">↗</span>
+      </div>
+    </div>
+    <div class="scroll-note">SCROLL TO EXPLORE <span>↓</span></div>
+  </section>
+
+  <section id="impact" class="metrics">
+    <div class="container metrics-grid">
+      <p>Energy independence,<br>made beautifully simple.</p>
+      <div><strong>30<span>%</span></strong><small>average annual savings</small></div>
+      <div><strong>25<span>yr</span></strong><small>production guarantee</small></div>
+      <div><strong>4.9<span>/5</span></strong><small>from 2,000+ homeowners</small></div>
+    </div>
+  </section>
+
+  <section class="calculator">
+    <div class="container calculator-grid">
+      <div>
+        <p class="eyebrow"><span></span> YOUR PERSONAL SOLAR PLAN</p>
+        <h2>See what your roof<br>could <em>return.</em></h2>
+        <p>Enter your average monthly bill to see a clear, no-obligation savings estimate.</p>
+      </div>
+      <div class="calculator-card"><label>AVERAGE MONTHLY ELECTRICITY BILL</label>
+        <div class="bill-input"><span>₹</span><input type="number" min="1000" [value]="monthlyBill()"
+            (input)="monthlyBill.set(+$any($event.target).value || 0)"><small>/ month</small></div><input class="range"
+          type="range" min="1500" max="15000" step="500" [value]="monthlyBill()"
+          (input)="monthlyBill.set(+$any($event.target).value)">
+        <div class="calc-result"><span>ESTIMATED MONTHLY SAVING</span><strong>₹ {{
+            estimatedSavings().toLocaleString('en-IN') }}</strong></div><button class="button primary"
+          (click)="openEstimate()">Get my full solar plan <b>↗</b></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="solutions" class="solutions container">
+    <div class="section-intro">
+      <p class="eyebrow"><span></span> DESIGNED FOR YOUR LIFE</p>
+      <h2>Good energy looks<br>different <em>here.</em></h2>
+    </div>
+    <p class="section-copy">From your first question to every bright day after, NexonSolar makes home energy refreshingly
+      human.</p>
+    <div class="cards">
+      <article>
+        <div class="icon">☀</div>
+        <h3>Designed for you</h3>
+        <p>No one-size-fits-all systems. We build around your roof, routine, and ambitions.</p><a
+          href="#process">Discover our approach <b>↗</b></a>
+      </article>
+      <article>
+        <div class="icon">⌁</div>
+        <h3>Made to last</h3>
+        <p>Premium hardware, exacting installation, and a 25-year promise built into every panel.</p><a
+          href="#process">Explore our technology <b>↗</b></a>
+      </article>
+      <article>
+        <div class="icon">◒</div>
+        <h3>Always in your corner</h3>
+        <p>Real people, clear answers, and smart monitoring that keeps you in the know.</p><a href="#process">Meet your
+          support team <b>↗</b></a>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container about-grid">
+      <div class="about-art">
+        <div class="about-sun"></div>
+        <div class="about-arch"><span>✦</span></div>
+        <div class="about-tag">EST. 2013<br><b>FOR BRIGHTER DAYS</b></div>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow"><span></span> ABOUT NexonSolar</p>
+        <h2>We believe better<br>energy starts <em>at home.</em></h2>
+        <p>NexonSolar began with a simple idea: the transition to clean energy should feel hopeful, personal, and
+          beautifully straightforward.</p>
+        <p>Today, our designers, engineers, and installation experts bring that belief to thousands of rooftops—making a
+          lighter footprint feel like a natural next step.</p><a class="text-link" href="#top">Meet our people
+          <b>↗</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="process">
+    <div class="container">
+      <div class="process-head">
+        <p class="eyebrow"><span></span> THE NexonSolar WAY</p>
+        <h2>From roof to<br><em>remarkable.</em></h2><a href="#top" class="round-arrow">↗</a>
+      </div>
+      <div class="steps">
+        <article><span>01</span>
+          <h3>Start with a conversation</h3>
+          <p>Tell us about your home and what a brighter energy future means to you.</p>
+        </article>
+        <article><span>02</span>
+          <h3>See your future in full</h3>
+          <p>We create a custom design and a clear picture of your savings—no guesswork.</p>
+        </article>
+        <article><span>03</span>
+          <h3>We bring it to life</h3>
+          <p>Our in-house team handles every detail, then stays with you for the journey.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="container testimonial-grid">
+      <div class="testimonial-content">
+        <div class="testimonial-topline"><p class="eyebrow"><span></span> WORDS FROM HOME</p><span class="review-count">4.9/5 · 2,000+ home reviews</span></div>
+        <div class="stars">★★★★★</div>
+        <blockquote>“{{ testimonials[activeTestimonial()].quote }}”</blockquote>
+        <div class="testimonial-meta"><div class="person"><div class="avatar">{{ testimonials[activeTestimonial()].initials }}</div><div><strong>{{ testimonials[activeTestimonial()].name }}</strong><small>NexonSolar homeowner · {{ testimonials[activeTestimonial()].location }}</small></div></div><div class="feedback-saving"><span>HOME RESULT</span><strong>{{ testimonials[activeTestimonial()].saving }}</strong></div></div>
+        <div class="testimonial-controls"><div class="testimonial-dots">@for (testimonial of testimonials; track testimonial.name; let i = $index) { <button [class.active]="activeTestimonial() === i" (click)="activeTestimonial.set(i)" [attr.aria-label]="'Show testimonial ' + (i + 1)"></button> }</div><div class="testimonial-arrows"><button (click)="previousTestimonial()" aria-label="Previous testimonial">←</button><button (click)="nextTestimonial()" aria-label="Next testimonial">→</button></div></div>
+      </div>
+      <aside class="review-insights"><p class="eyebrow"><span></span> HOMEOWNER INSIGHTS</p><div class="insight-score"><strong>4.9</strong><div><div class="stars">★★★★★</div><span>Average homeowner rating</span></div></div><div class="insight-list"><div><span>Clear, expert guidance</span><b>98%</b><i><em style="width:98%"></em></i></div><div><span>Clean, careful installation</span><b>96%</b><i><em style="width:96%"></em></i></div><div><span>Visible savings &amp; support</span><b>95%</b><i><em style="width:95%"></em></i></div></div><div class="insight-footer"><span>From verified NexonSolar homeowners</span><small>{{ activeTestimonial() + 1 }} / {{ testimonials.length }}</small></div></aside>
+    </div>
+  </section>
+
+  <section class="faq container">
+    <div>
+      <p class="eyebrow"><span></span> CLEAR ANSWERS</p>
+      <h2>Questions, <em>answered.</em></h2>
+    </div>
+    <div class="faq-list">
+      <article><button (click)="activeFaq.set(activeFaq() === 1 ? null : 1)">How much can a home save with solar?
+          <b>+</b></button>@if(activeFaq() === 1){<p>Most homeowners save between 50-90% on their electricity bills after installing solar panels. The exact savings depend on your energy usage, location, and the size of your solar system.</p>}
+      </article>
+      <article><button (click)="activeFaq.set(activeFaq() === 2 ? null : 2)">How long does installation take?
+          <b>+</b></button>@if(activeFaq() === 2){<p>The installation process typically takes 1-3 days, depending on the size of your system. However, the entire process from initial consultation to activation usually takes 4-8 weeks, including permitting and inspections.</p>}
+      </article>
+      <article><button (click)="activeFaq.set(activeFaq() === 3 ? null : 3)">Do solar panel work in power outages?
+          <b>+</b></button>@if(activeFaq() === 3){<p>Most solar panel systems are designed to shut off during power outages for safety reasons. However, some systems can be equipped with battery storage to provide backup power.</p>}
+      </article>
+      <article><button (click)="activeFaq.set(activeFaq() === 1 ? null : 1)">What maintenance is required?
+          <b>+</b></button>@if(activeFaq() === 1){<p>Solar panels require minimal maintenance. We recommend cleaning them 2-4 times a year and having a professional inspection every 2-3 years to ensure optimal performance.</p>}
+      </article>
+      <article><button (click)="activeFaq.set(activeFaq() === 2 ? null : 2)">Do you handle installation and paperwork?
+          <b>+</b></button>@if(activeFaq() === 2){<p>Yes. Your NexonSolar team handles design, installation, commissioning,
+          and guides you through applicable subsidy paperwork.</p>}</article>
+      <article><button (click)="activeFaq.set(activeFaq() === 3 ? null : 3)">What is the lifespan of solar panels?
+          <b>+</b></button>@if(activeFaq() === 3){<p>Solar panels are built to last. Most come with a 25-year performance guarantee, and many continue to produce electricity well beyond that.</p>}</article>
+    </div>
+  </section>
+
+  <section class="cta container">
+    <div>
+      <p class="eyebrow"><span></span> YOUR BRIGHTER FUTURE</p>
+      <h2>Ready when<br>you <em>are.</em></h2>
+      <p>Find out what solar could do for your home—with no pressure, ever.</p><button class="button light"
+        (click)="openEstimate()">Get your free estimate <b>↗</b></button>
+    </div>
+    <div class="solar-snapshot">
+      <div class="snapshot-head"><div><span class="live-dot"></span> LIVE SOLAR SNAPSHOT</div><small>Typical 5 kW home</small></div>
+      <div class="snapshot-energy"><div><span>Today’s generation</span><strong>18.4 <em>kWh</em></strong><small>Enough to power a home for the day</small></div><div class="sun-meter"><i></i><b>☀</b></div></div>
+      <div class="snapshot-stats"><div><span>Bill reduction</span><strong>Up to 90%</strong></div><div><span>Lifetime saving</span><strong>₹ 18L+</strong></div><div><span>CO₂ avoided</span><strong>41 tonnes</strong></div></div>
+      <p class="snapshot-note">Personalised for your roof, city &amp; energy usage.</p>
+    </div>
+  </section>
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand" href="#top"><span class="brand-mark">✦</span>NexonSolar</a>
+        <p>Thoughtfully designed rooftop solar for brighter homes and a cleaner India.</p>
+        <div class="social-links"><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            aria-label="Follow NexonSolar on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg></a><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            aria-label="Follow NexonSolar on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M14 21v-8h3l.5-3H14V8.3c0-.9.3-1.6 1.7-1.6H18V4.1c-.4-.1-1.3-.1-2.4-.1-2.8 0-4.6 1.7-4.6 4.8V10H8v3h3v8h3z">
+              </path>
+            </svg></a><a href="https://www.linkedin.com/" target="_blank" rel="noopener"
+            aria-label="Follow NexonSolar on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M6.5 8.5H3.4V21h3.1V8.5ZM5 3C3.9 3 3 3.9 3 5s.9 2 2 2 2-.9 2-2S6.1 3 5 3Zm14.8 11c0-3.8-2-5.6-4.7-5.6-2.2 0-3.1 1.2-3.7 2v-1.8H8.3V21h3.1v-6.2c0-1.6.3-3.2 2.3-3.2 2 0 2 1.9 2 3.3V21h3.1V14Z">
+              </path>
+            </svg></a></div>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3><a href="#solutions">Solar solutions</a><a href="#process">How it works</a><a
+          href="#about">About NexonSolar</a><a href="#impact">Our impact</a>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3><a href="#top">Solar guide</a><a href="#top">FAQs</a><a href="#top">Maintenance</a><a
+          href="#top">Refer a friend</a>
+      </div>
+      <div class="footer-contact">
+        <p class="eyebrow"><span></span> TALK TO AN EXPERT</p><a class="phone" href="tel:+919876543210">+91 98765
+          43210</a>
+        <p>Monday–Saturday · 9 AM–6 PM</p><button class="footer-cta" (click)="openEstimate()">Get a free solar plan
+          <b>↗</b></button>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div class="footer-legal"><a href="#top">Privacy policy</a><a href="#top">Terms of use</a><span>Made with ☀ in India</span></div>
+      <p>© 2026 NexonSolar Energy. Made for brighter days.</p>
+    </div>
+  </footer>
+  <a class="whatsapp-float" href="https://wa.me/" target="_blank" rel="noopener"
+    aria-label="Chat with NexonSolar on WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true">
+      <path
+        d="M27.2 4.7A15.5 15.5 0 0 0 2.6 23.4L1 31l7.8-1.6A15.5 15.5 0 1 0 27.2 4.7ZM16 28.5c-2.4 0-4.7-.6-6.8-1.8l-.5-.3-4.6 1 1-4.5-.3-.5A12.4 12.4 0 1 1 16 28.5Zm6.8-9.3c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2l-1.3 1.6c-.2.2-.4.3-.8.1-2.3-1.1-3.9-2.6-5.3-4.7-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.2 0-.5 0-.7l-1.2-2.8c-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-1.1 1.2-1.4 3-.5 4.8 1 2.1 3.9 5.6 8.6 7.6 1.2.5 2.1.8 2.8 1 1.2.2 2.3.2 3.2.1 1-.1 2.3-1 2.6-1.9.3-.9.3-1.7.2-1.9-.1-.2-.3-.3-.7-.5Z">
+      </path>
+    </svg><span>Chat with us</span></a>
+</main>
+
+@if (estimateOpen()) { <div class="modal-backdrop" (click)="estimateOpen.set(false)">
+  <section class="modal" (click)="$event.stopPropagation()"><button class="modal-close"
+      (click)="estimateOpen.set(false)" aria-label="Close form">×</button>
+    <p class="eyebrow"><span></span> START YOUR JOURNEY</p>
+    <h2>Let’s find your<br><em>sunshine.</em></h2>
+    <p>Share a few details and a solar expert will prepare a personalised estimate.</p>
+    <form (submit)="$event.preventDefault(); estimateOpen.set(false)">
+      <div class="form-row"><input placeholder="Your name" type="text" autocomplete="name" required><input
+          placeholder="Mobile number" type="tel" inputmode="numeric" autocomplete="tel" required></div><input
+        placeholder="Email address" type="email" autocomplete="email" required><textarea
+        placeholder="Tell us about your home or requirements" rows="3"></textarea><button class="button primary"
+        type="submit">Request estimate <b>↗</b></button>
+    </form>
+  </section>
+</div> }
