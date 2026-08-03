@@ -54,6 +54,8 @@
     </div>
   </section>
 
+  <section class="locations"><div class="container"><div class="locations-head"><div><p class="eyebrow"><span></span> OUR LOCAL PRESENCE</p><h2>We’re here, <em>near you.</em></h2></div><p>Local solar expertise, on-ground installation teams, and support that understands your home and city.</p></div><div class="location-grid">@for (branch of branches; track branch; let i = $index) { <button class="location-card" [class.active]="selectedBranch() === branch" (click)="selectedBranch.set(branch)"><span class="location-number">0{{ i + 1 }}</span><strong>{{ branch }}</strong><span class="location-service">Solar consultation · Installation · Support</span><b>↗</b></button> }</div><p class="locations-note"><span>●</span> Serving homeowners across Uttar Pradesh. Select a city to personalise your estimate.</p></div></section>
+
   <section class="calculator">
     <div class="container calculator-grid">
       <div>
@@ -107,7 +109,7 @@
       <div class="about-art">
         <div class="about-sun"></div>
         <div class="about-arch"><span>✦</span></div>
-        <div class="about-tag">EST. 2013<br><b>FOR BRIGHTER DAYS</b></div>
+        <div class="about-tag">EST. 2021<br><b>FOR BRIGHTER DAYS</b></div>
       </div>
       <div class="about-copy">
         <p class="eyebrow"><span></span> ABOUT NexonSolar</p>
@@ -227,8 +229,8 @@
           href="#top">Refer a friend</a>
       </div>
       <div class="footer-contact">
-        <p class="eyebrow"><span></span> TALK TO AN EXPERT</p><a class="phone" href="tel:+919876543210">+91 98765
-          43210</a>
+        <p class="eyebrow"><span></span> TALK TO AN EXPERT</p><a class="phone" href="tel:+918188884203">+91 8188884203
+    </a>
         <p>Monday–Saturday · 9 AM–6 PM</p><button class="footer-cta" (click)="openEstimate()">Get a free solar plan
           <b>↗</b></button>
       </div>
@@ -255,7 +257,7 @@
     <form (submit)="$event.preventDefault(); estimateOpen.set(false)">
       <div class="form-row"><input placeholder="Your name" type="text" autocomplete="name" required><input
           placeholder="Mobile number" type="tel" inputmode="numeric" autocomplete="tel" required></div><input
-        placeholder="Email address" type="email" autocomplete="email" required><textarea
+        placeholder="Email address" type="email" autocomplete="email" required><label class="branch-field">YOUR NEAREST BRANCH <select [value]="selectedBranch()" (change)="selectedBranch.set($any($event.target).value)">@for (branch of branches; track branch) { <option [value]="branch">{{ branch }}</option> }</select></label><textarea
         placeholder="Tell us about your home or requirements" rows="3"></textarea><button class="button primary"
         type="submit">Request estimate <b>↗</b></button>
     </form>

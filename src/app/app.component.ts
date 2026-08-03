@@ -12,6 +12,8 @@ export class AppComponent {
   monthlyBill = signal(4500);
   estimatedSavings = computed(() => Math.round(this.monthlyBill() * .86));
   activeFaq = signal<number | null>(null);
+  selectedBranch = signal('Kanpur');
+  branches = ['Kanpur', 'Unnao', 'Kannauj', 'Etawah', 'Prayagraj', 'Lucknow', 'Hardoi'];
   activeTestimonial = signal(0);
   testimonials = [
     { quote: 'Solaris made the whole thing feel impossibly easy. It is the best decision we have made for our home—and the view from our app is strangely addictive.', name: 'Amrita & Mohan', location: 'Bengaluru', initials: 'AM', saving: '₹ 4,200 saved / month' },
